@@ -12,6 +12,7 @@
     "express": "^4.13.4",
     "gulp": "^3.9.1",
     "react": "^15.0.2",
+    "react-bootstrap": "^0.29.4",
     "react-dom": "^15.0.2"
   },
   "devDependencies": {
