@@ -1,17 +1,19 @@
 import React from 'react'
-
+import TodoList from './TodoList.js'
+import {Grid, Row, Col} from 'react-bootstrap'
 
 class HomePage extends React.Component{
 
   render(){
     return(
-      <div className="container">
-        <div className="row-fluid">
-          <div className="col-md-offset-3 col-md-offset-6 text-center">
+      <Grid>
+        <Row className="show-grid">
+          <Col mdOffset={3} md={6} className="text-center">
             <h3>Welcome! </h3>
-          </div>
-        </div>
-      </div>
+          </Col>
+          <TodoList></TodoList>
+        </Row>
+      </Grid>
     )
   }
 }
