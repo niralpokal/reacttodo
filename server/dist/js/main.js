@@ -1,3 +1,2 @@
 import React from 'react'
-
-console.log('hi');
+import ReactDom from 'react-dom'
