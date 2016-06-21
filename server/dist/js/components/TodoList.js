@@ -8,13 +8,15 @@ class TodoList extends React.Component{
     this.state ={item: [{id:1, text:"Hello"}, {id:2, text:"World"}]}
   }
   setTodo(e){
-    this.state.temp = {id:3, text:e.target.value};
+    this.state.temp = {text:e.target.value}
   }
   updateList(e){
+    document.getElementById('AddTodo').reset()
+    this.state.temp.id = (this.state.item.length +1)
     this.state.item.push(this.state.temp);
-    var a = this.state.item
+    var newItem = this.state.item
     this.setState({
-      item: a
+      item: newItem
     })
   }
   render(){
@@ -26,11 +28,11 @@ class TodoList extends React.Component{
     return(
       <Row className="show-grid">
         <Col md={6} mdOffset={3} className="text-center">
-          <Form inline={true}>
+          <Form inline={true} id="AddTodo">
             <FormGroup>
               <FormControl
                 type="text"
-                value={this.newItem}
+                value={this.todos}
                 onChange={this.setTodo.bind(this)}
               >
               </FormControl>
