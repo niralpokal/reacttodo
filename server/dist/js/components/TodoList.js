@@ -12,6 +12,10 @@ class TodoList extends React.Component{
   }
   updateList(e){
     this.state.item.push(this.state.temp);
+    var a = this.state.item
+    this.setState({
+      item: a
+    })
   }
   render(){
     let list = function(item){
