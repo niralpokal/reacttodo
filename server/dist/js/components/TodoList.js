@@ -11,6 +11,7 @@ class TodoList extends React.Component{
     this.state.temp = {text:e.target.value}
   }
   updateList(e){
+    e.preventDefault()
     document.getElementById('AddTodo').reset()
     this.state.temp.id = (this.state.item.length +1)
     this.state.item.push(this.state.temp);
@@ -28,7 +29,11 @@ class TodoList extends React.Component{
     return(
       <Row className="show-grid">
         <Col md={6} mdOffset={3} className="text-center">
-          <Form inline={true} id="AddTodo">
+          <Form
+            inline={true}
+            id="AddTodo"
+            onSubmit={this.updateList.bind(this)}
+            >
             <FormGroup>
               <FormControl
                 type="text"
@@ -38,7 +43,8 @@ class TodoList extends React.Component{
               </FormControl>
               <Button
                 className="btn-default"
-                onClick={this.updateList.bind(this)}>New Todo
+                type="submit"
+                >Add Todo
               </Button>
             </FormGroup>
           </Form>
