@@ -5,10 +5,13 @@ import TodoListItem from './TodoListItem.js'
 class TodoList extends React.Component{
   constructor(){
     super();
-    this.state ={item: [{id:1, text:"Hello"}, {id:2, text:"World"}]}
+    var d = new Date
+    var c = new Date
+    this.state ={item: [{id:1, text:"Hello", date:c.toLocaleString()}, {id:2, text:"World", date:d.toLocaleString()}]}
   }
   setTodo(e){
-    this.state.temp = {text:e.target.value}
+    var a = new Date
+    this.state.temp = {text:e.target.value, date:a.toLocaleString()}
   }
   updateList(e){
     e.preventDefault()
@@ -23,7 +26,7 @@ class TodoList extends React.Component{
   render(){
     let list = function(item){
       return(
-        <TodoListItem key={item.id}>{item.text}</TodoListItem>
+        <TodoListItem key={item.id}>{item.text},  {item.date}</TodoListItem>
       )
     }
     return(
