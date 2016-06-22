@@ -7,16 +7,20 @@ class TodoList extends React.Component{
     super();
     var d = new Date
     var c = new Date
-    this.state ={item: [{id:1, text:"Hello", date:c.toLocaleString()}, {id:2, text:"World", date:d.toLocaleString()}]}
+    d.setDate(d.getDate()+7);
+    c.setDate(c.getDate()+7)
+    this.state ={item: [{id:1, text:"Hello", date:c.toDateString()}, {id:2, text:"World", date:d.toDateString()}]}
   }
   setTodo(e){
-    var a = new Date
-    this.state.temp = {text:e.target.value, date:a.toLocaleString()}
+    this.state.temp = {text:e.target.value}
   }
   updateList(e){
     e.preventDefault()
     document.getElementById('AddTodo').reset()
+    var a = new Date()
+    a.setDate(a.getDate()+7)
     this.state.temp.id = (this.state.item.length +1)
+    this.state.temp.date = a.toDateString()
     this.state.item.push(this.state.temp);
     var newItem = this.state.item
     this.setState({
